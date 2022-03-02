@@ -76,10 +76,10 @@ const Monitoring = () => {
     
   }
 
-  const [count, setCount] = useState(0);
-  const [count2, setCount2] = useState(0);
-  const ref1 = React.createRef();
-  const ref2 = React.createRef();
+  // const [count, setCount] = useState(0);
+  // const [count2, setCount2] = useState(0);
+  // const ref1 = React.createRef();
+  // const ref2 = React.createRef();
 
   const firstchange = () => {
     setCount(count + 1)
