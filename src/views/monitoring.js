@@ -85,13 +85,13 @@ const Monitoring = () => {
     setCount(count + 1)
   }
 
-  const countUp = () => {
-    firstchange()
+  // const countUp = () => {
+  //   firstchange()
 
-    setTimeout(() => {
-      setCount2(count + 1);
-    }, 1500);
-  };
+  //   setTimeout(() => {
+  //     setCount2(count + 1);
+  //   }, 1500);
+  // };
 
   return (
     <div className={styles["container"]}>
