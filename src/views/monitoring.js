@@ -16,15 +16,14 @@ const Monitoring = () => {
   const columns = useMemo(() => columns_student, [])
   const data = useMemo(() => STUDENTS, [])
   const [totalResult, setResult] = useState(data.length)
-  const refResult = React.createRef();
   const [dataset, setDataSet] = useState(data);
 
   const updateTable = (search, filter, checked) => {
 
     let final = data.filter(students => {
       let test_filter = true;
-      if (filter == "Male") {
-        test_filter = students.program.toLowerCase().includes(filter.toLowerCase()) || students.gender.toLowerCase() == filter.toLowerCase()
+      if (filter === "Male") {
+        test_filter = students.program.toLowerCase().includes(filter.toLowerCase()) || students.gender.toLowerCase() === filter.toLowerCase()
       }
       else {
         test_filter = students.program.toLowerCase().includes(filter.toLowerCase()) || students.gender.toLowerCase().includes(filter.toLowerCase())

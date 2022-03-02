@@ -46,10 +46,10 @@ const TableContainer = ({columns, data}) => {
     setPageSize(Number(event.target.value))
   }
   
-  const onChangeInInput = event => {
-    const page = event.target.value ? Number(event.target.value) - 1 : 0
-    gotoPage(page)
-  }
+  // const onChangeInInput = event => {
+  //   const page = event.target.value ? Number(event.target.value) - 1 : 0
+  //   gotoPage(page)
+  // }
 
   const generateSortingIndicator = (column) => {
     return column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : '';
