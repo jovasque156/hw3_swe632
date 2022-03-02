@@ -76,23 +76,6 @@ const Monitoring = () => {
     
   }
 
-  // const [count, setCount] = useState(0);
-  // const [count2, setCount2] = useState(0);
-  // const ref1 = React.createRef();
-  // const ref2 = React.createRef();
-
-  const firstchange = () => {
-    setCount(count + 1)
-  }
-
-  // const countUp = () => {
-  //   firstchange()
-
-  //   setTimeout(() => {
-  //     setCount2(count + 1);
-  //   }, 1500);
-  // };
-
   return (
     <div className={styles["container"]}>
       <Helmet>
