@@ -1,7 +1,7 @@
 export const columns_student = [
   {
-    Header: 'Risk',
-    accessor: 'risk',
+    Header: 'Riesgo',
+    accessor: 'Riesgo',
     width: 80,
     disableResizing: true,
     Cell: ({ cell }) => {
@@ -33,41 +33,78 @@ export const columns_student = [
     },
   },  
   {
-    Header: 'id',
-    accessor: 'id',
-    width: 150,
+    Header: 'ID Estudiante',
+    accessor: 'ID Estudiante',
+    width: 130,
     disableResizing: true,
   },
   
   {
-    Header: 'First Name',
-    accessor: 'full_name.f',
-    width: 140,
+    Header: 'Nombre',
+    accessor: 'Nombre',
+    width: 170,
     disableResizing: true,
   },
   {
-    Header: 'Last Name',
-    accessor: 'full_name.l',
-    width: 140,
-    disableResizing: true,
-  },
-  {
-    Header: 'Email',
+    Header: 'email',
     accessor: 'email',
-    width: 300,
+    width: 200,
     disableResizing: true,
   },
   {
-    Header: 'Gender',
-    accessor: 'gender',
+    Header: 'Programa',
+    accessor: 'Programa',
+    width: 100,
+    disableResizing: true,
+  },
+  {
+    Header: 'Genero',
+    accessor: 'Genero',
     width: 130,
     disableResizing: true,
   },
   {
-    Header: 'Program',
-    accessor: 'program',
-    width: 430,
+    Header: 'Creditos Aprobados',
+    accessor: 'Creditos Aprobados',
+    width: 130,
     disableResizing: true,
+    Cell: ({ cell }) => {
+      const { value } = cell;
+      return (
+        <div style={{ textAlign: 'center' }}>
+          {value}
+        </div>
+      );
+    },
+  },
+
+  {
+    Header: 'Creditos Reprobados',
+    accessor: 'Creditos Reprobados',
+    width: 130,
+    disableResizing: true,
+    Cell: ({ cell }) => {
+      const { value } = cell;
+      return (
+        <div style={{ textAlign: 'center' }}>
+          {value}
+        </div>
+      );
+    },
+  },
+  {
+    Header: 'Evaluación Docente',
+    accessor: 'Evaluación Docente',
+    width: 130,
+    disableResizing: true,
+    Cell: ({ cell }) => {
+      const { value } = cell;
+      return (
+        <div style={{ textAlign: 'center' }}>
+          {value}
+        </div>
+      );
+    },
   },
     
 ]

@@ -30,7 +30,7 @@ const TableContainer = ({columns, data}) => {
                     pageSize: 10,
                     sortBy: [
                       {
-                        id: 'risk',
+                        id: 'Riesgo',
                         desc: true
                       }
                     ]

@@ -6,7 +6,7 @@ import projectStyles from "../css/style.module.css";
 import styles from "../css/home.module.css";
 import {levels} from "../assets/levels_risks";
 import {columns_student} from "../assets/columns_table_student";
-import STUDENTS from "../assets/students_fake.json";
+import STUDENTS from "../assets/student.json";
 import TableContainer from '../components/Table';
 
 const Monitoring = () => {
@@ -22,14 +22,14 @@ const Monitoring = () => {
 
     let final = data.filter(students => {
       let test_filter = true;
-      if (filter === "Male") {
-        test_filter = students.program.toLowerCase().includes(filter.toLowerCase()) || students.gender.toLowerCase() === filter.toLowerCase()
+      if (filter === "MASCULINO") {
+        test_filter = students.Programa.toLowerCase().includes(filter.toLowerCase()) || students.Genero.toLowerCase() === filter.toLowerCase()
       }
       else {
-        test_filter = students.program.toLowerCase().includes(filter.toLowerCase()) || students.gender.toLowerCase().includes(filter.toLowerCase())
+        test_filter = students.Programa.toLowerCase().includes(filter.toLowerCase()) || students.Genero.toLowerCase().includes(filter.toLowerCase())
       }
       
-      const test_search = students.id.toLowerCase().includes(search.toLowerCase()) || students.first_name.toLowerCase().includes(search.toLowerCase()) || students.last_name.toLowerCase().includes(search.toLowerCase()) || students.email.toLowerCase().includes(search.toLowerCase())
+      const test_search = students['ID Estudiante'].toLowerCase().includes(search.toLowerCase()) || students.Nombre.toLowerCase().includes(search.toLowerCase()) || students.email.toLowerCase().includes(search.toLowerCase())
       return(
         test_search && test_filter
         );
@@ -45,9 +45,9 @@ const Monitoring = () => {
       if (high_risk===false && med_risk===false && low_risk===false){
         return true;
       }else{
-        if (high_risk){ selected = selected || students.risk>=69}
-        if (med_risk) { selected = selected || (students.risk>=33 && students.risk<69)}
-        if (low_risk) { selected = selected || students.risk<33}
+        if (high_risk){ selected = selected || students.Riesgo>=69}
+        if (med_risk) { selected = selected || (students.Riesgo>=33 && students.Riesgo<69)}
+        if (low_risk) { selected = selected || students.Riesgo<33}
         return selected;
     }
     }
@@ -80,13 +80,13 @@ const Monitoring = () => {
     <div className={styles["container"]}>
       <Helmet>
         <title>Monitoring Students</title>
-        <meta property="og:title" content="Monitoring Students" />
+        <meta property="og:title" content="Seguimiento de Estudiantes" />
       </Helmet>
       <header className={styles["Header"]}>
         <div className={styles["menu_containers"]}>
-          <MenuTab menu="Monitoring"></MenuTab>
-          <MenuTab menu="Collecting"></MenuTab>
-          <MenuTab menu="Reporting"></MenuTab>
+          <MenuTab menu="Seguimiento"></MenuTab>
+          {/* <MenuTab menu="Collecting"></MenuTab> */}
+          {/* <MenuTab menu="Reporting"></MenuTab> */}
         </div>
         <div className={styles["menu_containers"]}>
           <img
@@ -98,12 +98,19 @@ const Monitoring = () => {
         </div>
       </header>
       <section className={styles["section"]}>
-        <h2 className={projectStyles["heading2"]}>Monitoring Students</h2>
+        {/* <h2 className={projectStyles["heading2"]}>Monitoring Students</h2> */}
+        <h2 className={projectStyles["heading2"]}>Seguimiento de Estudiantes</h2>
         <div className={styles["menu_filter"]}>
           <div margin-bottom={projectStyles["--dl-space-space-unit"]}>
             <span className={`${projectStyles["content"]} `}>
-              Enter the information of the student. Also you can select filter
-              by program and level of risk of dropout. Larger number means high probability of dropping out.
+              {/* Enter the information of the student. Also you can select filter
+              by program and level of risk of dropout. Larger number means high probability of dropping out. */}
+              <p>En esta sección usted podrá ver información de los estudiantes monitoreados. Por el momento solo se muestra información relevante,
+              tal como el id, el correo en el caso que desea contactar, el genero (por ahora solo Masculino y Femenino) y el programa.</p> <br></br>
+              <p>Para el monitoreo se muestra el Riesgo, un numero que va de 0 a 100 y que muestra el riesgo que el/la estudiante deje el programa. Como apoyo a este score
+              también se muestran el total de creditos aprobados, reprobados y la evaluación docente promedio que el/la estudiante ha otorgado a los docentes que le han hecho clases.</p> <br></br>
+              <p>Las herramientas de abajo le son entregadas para buscar y filtrar estudiantes.</p>
+            
             </span>
           </div>
         </div>
@@ -113,13 +120,14 @@ const Monitoring = () => {
             className={`${projectStyles["content"]}`}
             margin-right={projectStyles["--dl-space-space-unit"]}
           >
-            Student Information
+            {/* Student Information */}
+            <em>Buscar estudiante...</em>
           </label>
           <input
             type="text"
             id="search"
             name="search"
-            placeholder="ID, First name, Last name, email"
+            placeholder="ID, Nombre, email"
             className={` ${styles["Input"]} ${projectStyles["input"]} `}
             onInput={(e) => FilterDataName(e.target.value)}
           />
@@ -130,14 +138,16 @@ const Monitoring = () => {
             className={`${projectStyles["content"]} `}
             margin-right={projectStyles["--dl-space-space-unit"]}
           >
-            Filter by
+            {/* Filter by */}
+            <em>Filtrar por</em>
           </label>
           <div className={styles["group_filterby"]}>
             <input
               type="text"
               id="filter_program"
               name="filter_program"
-              placeholder="Program or Gender"
+              // placeholder="Program or Gender"
+              placeholder="Programa or Género"
               className={` ${styles["Input"]} ${projectStyles["input"]} `}
               onInput={(e) => FilterDataProgram(e.target.value)}
             />
