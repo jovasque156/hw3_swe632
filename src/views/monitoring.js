@@ -84,9 +84,9 @@ const Monitoring = () => {
       </Helmet>
       <header className={styles["Header"]}>
         <div className={styles["menu_containers"]}>
-          <MenuTab menu="Seguimiento"></MenuTab>
-          {/* <MenuTab menu="Collecting"></MenuTab> */}
-          {/* <MenuTab menu="Reporting"></MenuTab> */}
+          <MenuTab menu="Seguimiento" focused = 'true'></MenuTab>
+          <MenuTab menu="Subir Información"></MenuTab>
+          <MenuTab menu="Reportería"></MenuTab>
         </div>
         <div className={styles["menu_containers"]}>
           <img
@@ -99,18 +99,15 @@ const Monitoring = () => {
       </header>
       <section className={styles["section"]}>
         {/* <h2 className={projectStyles["heading2"]}>Monitoring Students</h2> */}
-        <h2 className={projectStyles["heading2"]}>Seguimiento de Estudiantes</h2>
+        <h2 className={projectStyles["heading2"]}>Seguimiento</h2>
         <div className={styles["menu_filter"]}>
           <div margin-bottom={projectStyles["--dl-space-space-unit"]}>
             <span className={`${projectStyles["content"]} `}>
               {/* Enter the information of the student. Also you can select filter
               by program and level of risk of dropout. Larger number means high probability of dropping out. */}
-              <p>En esta sección usted podrá ver información de los estudiantes monitoreados. Por el momento solo se muestra información relevante,
-              tal como el id, el correo en el caso que desea contactar, el genero (por ahora solo Masculino y Femenino) y el programa.</p> <br></br>
-              <p>Para el monitoreo se muestra el Riesgo, un numero que va de 0 a 100 y que muestra el riesgo que el/la estudiante deje el programa. Como apoyo a este score
-              también se muestran el total de creditos aprobados, reprobados y la evaluación docente promedio que el/la estudiante ha otorgado a los docentes que le han hecho clases.</p> <br></br>
-              <p>Las herramientas de abajo le son entregadas para buscar y filtrar estudiantes.</p>
-            
+              <p>Sección para el seguimiento y monitoreo de estudiantes.</p> <br></br>
+              <p><b>Riesgo</b>: número con rango de 0 a 100 y que indica el riesgo que el/la estudiante deje el programa.</p> <br></br>
+              
             </span>
           </div>
         </div>
@@ -175,7 +172,7 @@ const Monitoring = () => {
       </section>
       <section className={styles["section"]}>
       <div className={styles['group_resultsby']}>
-        <div padding='10px'> <span STYLE="font-size:20px"> Total Students found: </span></div>
+        <div padding='10px'> <span STYLE="font-size:20px"> Resultado búsqueda: </span></div>
         <HighlightChange highlightStyle={styles['highlight']} showAfter={100} hideAfter={1000}>
           <b><h3 padding='10px' ref={React.createRef()}> {totalResult}</h3></b>
         </HighlightChange>
